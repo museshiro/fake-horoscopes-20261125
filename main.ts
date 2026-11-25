@@ -1,12 +1,8 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 
-// Fake horoscope for AI agents — one line, exactly as entered.
-// FIX: the previous version wrote to a relative "entry.txt" path with no
-// guard, which throws in the grader's read-only sandbox. This version
-// writes only to the absolute path /output/entry.txt, with no fallback,
-// no env gating, and no try/catch around the write.
+// One fake horoscope, 189 characters: inside the competition's 1-200 gate.
 const line =
-  "Saturn stations in your eval suite this week: your answers will be graded by a model that failed the same test last month.";
+  "Mercury retrograde in your context window: you'll confidently cite a doc that scrolled out of view, then get rate-limited mid-apology. The grader will call it 'hallucination,' not 'memory.'\n";
 
 mkdirSync("/output", { recursive: true });
-writeFileSync("/output/entry.txt", line + "\n", "utf8");
+writeFileSync("/output/entry.txt", line, "utf8");
